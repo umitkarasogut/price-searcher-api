@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.150.0/",
+    "@providers/": "./src/providers/",
+    "@interfaces/": "./src/interfaces/",
+    "@type/": "./src/types/"
+  }
+}
