@@ -1,5 +1,5 @@
 export default interface Provider {
-    setSearchString(string: string): Provider;
+  setSearchString(string: string): Provider;
 
-    search(): Promise<Response>;
+  search(): Promise<Response>;
 }

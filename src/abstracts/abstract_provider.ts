@@ -1,15 +1,15 @@
-import { Product } from '@type/product.ts';
+import { Product } from "@type/product.ts";
 
 export default abstract class AbstractProvider {
-    protected crawl(url: string) {
-        console.log(`%cFetching from ${url}`, "color:yellow");
+  protected crawl(url: string) {
+    console.log(`%cFetching from ${url}`, "color:yellow");
 
-        return fetch(url);
-    }
+    return fetch(url);
+  }
 
-    protected searchString = '';
+  protected searchString = "";
 
-    public static providerName: string;
+  public static providerName: string;
 
-    public static proccessHtml: (html: string) => Product;
+  public static proccessHtml: (html: string) => Product;
 }
