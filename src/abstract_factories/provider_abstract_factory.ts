@@ -13,11 +13,16 @@ export default class ProviderAbstractFactory {
 
         const responses = await Promise.all(requests);
 
+        responses.map((response, index) => console.log(
+            `%cFetched from ${this.providers[index].providerName} with ${response.status} status code`,
+            `color:${response.ok ? 'green' : 'red'}`
+        ));
+
         const htmls = await Promise.all(responses.map(response => response.text()));
 
         return htmls.map((html, index) => ({
             provider: this.providers[index].providerName,
-            product: this.providers[index].processHtml(html)
+            products: this.providers[index].processHtml(html)
         }));
     }
 }
