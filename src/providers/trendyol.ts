@@ -17,7 +17,7 @@ export default class TrendyolProvider extends AbstractProvider implements Provid
     return this.crawl(`${this.url}/sr?q=${this.searchString}`);
   }
 
-  public processHtml(html: string): Product | Product[] {
+  public processHtml(html: string): Product[] {
     const document = new DOMParser().parseFromString(html, 'text/html');
 
     if (!document) throw new Error('Document can not be null!');
