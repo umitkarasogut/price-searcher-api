@@ -3,9 +3,15 @@ import { serve } from "std/http/server.ts";
 
 const handler = async (request: Request): Promise<Response> => {
   try {
+    const start = performance.now();
+
     const { search } = await request.json();
 
     const results = await new ProviderAbstractFactory().search(search);
+
+    const diff = performance.now() - start;
+
+    console.log(`Responsed at ${diff}ms`);
 
     return new Response(JSON.stringify(results), {
       status: 200,
