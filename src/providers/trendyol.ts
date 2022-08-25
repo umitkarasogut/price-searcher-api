@@ -1,15 +1,15 @@
-import AbstractProvider from "../abstracts/abstract_provider.ts";
-import Provider from "@interfaces/provider.ts";
-import { Product } from "@type/product.ts";
-import { DOMParser, Element } from "@deno_dom";
+import AbstractProvider from '../abstracts/abstract_provider.ts';
+import Provider from '@interfaces/provider.ts';
+import { Product } from '@type/product.ts';
+import { DOMParser, Element } from '@deno_dom';
 
 export default class TrendyolProvider extends AbstractProvider implements Provider {
-  public providerName = "Trendyol";
+  public providerName = 'Trendyol';
 
-  public url = "https://www.trendyol.com";
+  public url = 'https://www.trendyol.com';
 
   setSearchString(string: string): Provider {
-    this.searchString = string.replace(" ", "%");
+    this.searchString = string.replace(' ', '%');
     return this;
   }
 
@@ -18,23 +18,20 @@ export default class TrendyolProvider extends AbstractProvider implements Provid
   }
 
   public processHtml(html: string): Product | Product[] {
-    const document = new DOMParser().parseFromString(html, "text/html");
+    const document = new DOMParser().parseFromString(html, 'text/html');
 
-    if (!document) throw new Error("Document can not be null!");
+    if (!document) throw new Error('Document can not be null!');
 
-    const products =
-      ([...document.querySelectorAll(".p-card-wrppr")] as Element[]).map(
-        (element) => ({
-          name: document.querySelector(".prdct-desc-cntnr-name")?.textContent!,
-          price: element.querySelector(".prc-cntnr .prc-box-dscntd")?.textContent!,
-          url: this.url + element.querySelector("a")?.getAttribute("href")!,
-          image: this.url + element.querySelector(".p-card-img-wr img.p-card-img")?.getAttribute("src")!, //TODO:this not crawling
-        }),
-      );
+    const products = ([...document.querySelectorAll('.p-card-wrppr')] as Element[]).map((element) => ({
+      name: document.querySelector('.prdct-desc-cntnr-name')?.textContent!,
+      price: element.querySelector('.prc-cntnr .prc-box-dscntd')?.textContent!,
+      url: this.url + element.querySelector('a')?.getAttribute('href')!,
+      image: this.url + element.querySelector('.p-card-img-wr img.p-card-img')?.getAttribute('src')!, //TODO:this not crawling
+    }));
 
     console.log(
       `%cProcessed ${products.length} ${this.providerName} product`,
-      "color:blue",
+      'color:blue',
     );
 
     return products;

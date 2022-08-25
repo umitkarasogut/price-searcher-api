@@ -1,5 +1,5 @@
-import TrendyolProvider from "@providers/trendyol.ts";
-import HepsiburadaProvider from "@providers/hepsiburada.ts";
+import TrendyolProvider from '@providers/trendyol.ts';
+import HepsiburadaProvider from '@providers/hepsiburada.ts';
 
 export default class ProviderAbstractFactory {
   private providers = [
