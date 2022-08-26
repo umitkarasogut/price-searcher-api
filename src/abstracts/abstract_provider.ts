@@ -8,8 +8,4 @@ export default abstract class AbstractProvider {
   }
 
   protected searchString = '';
-
-  public static providerName: string;
-
-  public static proccessHtml: (html: string) => Product;
 }
