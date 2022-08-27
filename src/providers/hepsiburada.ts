@@ -6,7 +6,7 @@ import { DOMParser, Element } from '@deno_dom';
 export default class HepsiburadaProvider extends AbstractProvider implements Provider {
   public providerName = 'Hepsiburada';
 
-  public url = 'https://www.hepsiburada.com';
+  private url = 'https://www.hepsiburada.com';
 
   setSearchString(string: string): Provider {
     this.searchString = string.replace(' ', '+');

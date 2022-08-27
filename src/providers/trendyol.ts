@@ -6,7 +6,7 @@ import { DOMParser, Element } from '@deno_dom';
 export default class TrendyolProvider extends AbstractProvider implements Provider {
   public providerName = 'Trendyol';
 
-  public url = 'https://www.trendyol.com';
+  private url = 'https://www.trendyol.com';
 
   setSearchString(string: string): Provider {
     this.searchString = string.replace(' ', '%');
