@@ -26,8 +26,8 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
       name: document.querySelector("[data-test-id='product-card-name']")?.textContent!,
       price: element.querySelector("[data-test-id='price-current-price']")?.textContent!,
       url: this.url + element.querySelector('a')?.getAttribute('href')!,
-      image: this.url + element.querySelector("[data-test-id='product-image-image'] > pricture > source")?.getAttribute('srcset')!, //TODO:this not crawling
-    }));
+      image: element.querySelector("[data-test-id='product-image-image'] picture img")?.getAttribute('src')!,
+    })).filter(product => product.image);
 
     console.log(
       `%cProcessed ${products.length} ${this.providerName} product`,
