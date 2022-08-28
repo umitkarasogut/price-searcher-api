@@ -23,7 +23,7 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
     if (!document) throw new Error('Document can not be null!');
 
     const products = ([...document.querySelectorAll('ul.productListContent-wrapper li.productListContent-item')] as Element[]).map((element) => ({
-      name: document.querySelector("[data-test-id='product-card-name']")?.textContent!,
+      name: element.querySelector("[data-test-id='product-card-name']")?.textContent!,
       price: element.querySelector("[data-test-id='price-current-price']")?.textContent!,
       url: this.url + element.querySelector('a')?.getAttribute('href')!,
       image: element.querySelector("[data-test-id='product-image-image'] picture img")?.getAttribute('src')!,
