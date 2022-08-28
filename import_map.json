@@ -2,6 +2,8 @@
   "imports": {
     "std/": "https://deno.land/std@0.150.0/",
     "@providers/": "./src/providers/",
+    "@oak/": "https://deno.land/x/oak@v11.1.0/",
+    "@abstract_factories/": "./src/abstract_factories/",
     "@interfaces/": "./src/interfaces/",
     "@type/": "./src/types/",
     "@deno_dom": "https://deno.land/x/deno_dom@v0.1.33-alpha/deno-dom-wasm.ts"
