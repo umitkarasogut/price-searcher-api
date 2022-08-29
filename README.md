@@ -1,4 +1,4 @@
-# Price Searcher
+# Price Searcher Api
 Search price of product on hepsiburada.com and trendyol.com
 
 ## Run http server
