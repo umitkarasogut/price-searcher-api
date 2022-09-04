@@ -17,7 +17,7 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
     return this.crawl(`${this.url}/ara?q=${this.searchString}`);
   }
 
-  public processHtml(html: string): Product[] {
+  processHtml(html: string): Product[] {
     const document = new DOMParser().parseFromString(html, 'text/html');
 
     if (!document) throw new Error('Document can not be null!');
