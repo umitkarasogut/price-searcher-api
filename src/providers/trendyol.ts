@@ -23,9 +23,9 @@ export default class TrendyolProvider extends AbstractProvider implements Provid
     if (!document) throw new Error('Document can not be null!');
 
     const products = ([...document.querySelectorAll('.p-card-wrppr')] as Element[]).map(element => ({
-      name: element.querySelector('.prdct-desc-cntnr-name')?.textContent!,
-      price: element.querySelector('.prc-cntnr .prc-box-dscntd')?.textContent!,
-      url: this.url + element.querySelector('a')?.getAttribute('href')!,
+      name: element.querySelector('.prdct-desc-cntnr-name').textContent,
+      price: element.querySelector('.p-card-chldrn-cntnr .product-down .product-price .prc-box-dscntd')?.textContent!,
+      url: this.url + element.querySelector('a').getAttribute('href'),
       image: this.url + element.querySelector('.p-card-img-wr img.p-card-img')?.getAttribute('src')!, //TODO:this not crawling 'cause images loading lazy
     }));
 

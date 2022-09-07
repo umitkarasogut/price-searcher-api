@@ -20,6 +20,7 @@ router.post('/', async ({ request, response }: { request: Request; response: Res
         return;
 
     } catch (error) {
+        console.error(error);
         response.status = 500;
         response.body = error.message;
         return;
