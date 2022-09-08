@@ -34,6 +34,6 @@ export default class TrendyolProvider extends AbstractProvider implements Provid
       'color:blue',
     );
 
-    return products;
+    return this.verifyProducts(products);
   }
 }

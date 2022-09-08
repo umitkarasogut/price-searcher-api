@@ -34,6 +34,6 @@ export default class N11Provider extends AbstractProvider implements Provider {
       'color:blue',
     );
 
-    return products;
+    return this.verifyProducts(products);
   }
 }

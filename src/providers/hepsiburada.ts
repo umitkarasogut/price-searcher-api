@@ -27,13 +27,13 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
       price: element.querySelector("[data-test-id='price-current-price']")?.textContent!,
       url: this.url + element.querySelector('a')?.getAttribute('href')!,
       image: element.querySelector("[data-test-id='product-image-image'] picture img")?.getAttribute('src')!,
-    })).filter(product => product.image);
+    }));
 
     console.log(
       `%cProcessed ${products.length} ${this.providerName} product`,
       'color:blue',
     );
 
-    return products;
+    return this.verifyProducts(products);
   }
 }
