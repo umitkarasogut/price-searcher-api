@@ -22,7 +22,7 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
 
     if (!document) throw new Error('Document can not be null!');
 
-    const products = ([...document.querySelectorAll('ul.productListContent-wrapper li.productListContent-item')] as Element[]).map((element) => ({
+    const products = ([...document.querySelectorAll('li[class^="productListContent"]')] as Element[]).map((element) => ({
       name: element.querySelector("[data-test-id='product-card-name']")?.textContent!,
       price: element.querySelector("[data-test-id='price-current-price']")?.textContent!,
       url: this.url + element.querySelector('a')?.getAttribute('href')!,
@@ -33,7 +33,7 @@ export default class HepsiburadaProvider extends AbstractProvider implements Pro
       `%cProcessed ${products.length} ${this.providerName} product`,
       'color:blue',
     );
-
+      
     return this.verifyProducts(products);
   }
 }
